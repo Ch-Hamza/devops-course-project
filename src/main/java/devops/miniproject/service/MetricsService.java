@@ -18,16 +18,16 @@ public class MetricsService {
         MetricsResponse metricsResponse = new MetricsResponse();
 
         // windows file system
-        File cDrive = new File("C:");
+        /*File cDrive = new File("C:");
         metricsResponse.setTotalDiskSpace(String.format("%.2f GB", (double)cDrive.getTotalSpace() /1073741824));
         metricsResponse.setFreeDiskSpace(String.format("%.2f GB", (double)cDrive.getFreeSpace() /1073741824));
-        metricsResponse.setUsableDiskSpace(String.format("%.2f GB", (double)cDrive.getUsableSpace() /1073741824));
+        metricsResponse.setUsableDiskSpace(String.format("%.2f GB", (double)cDrive.getUsableSpace() /1073741824));*/
 
         // linux file system
-        /*File root = new File("/");
+        File root = new File("/");
         metricsResponse.setTotalDiskSpace(String.format("Total space: %.2f GB", (double)root.getTotalSpace() /1073741824));
         metricsResponse.setFreeDiskSpace(String.format("Free space: %.2f GB", (double)root.getFreeSpace() /1073741824));
-        metricsResponse.setUsableDiskSpace(String.format("Usable space: %.2f GB", (double)root.getUsableSpace() /1073741824));*/
+        metricsResponse.setUsableDiskSpace(String.format("Usable space: %.2f GB", (double)root.getUsableSpace() /1073741824));
 
         MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
         metricsResponse.setInitialMemory(String.format("%.2f GB", (double)memoryMXBean.getHeapMemoryUsage().getInit() /1073741824));
