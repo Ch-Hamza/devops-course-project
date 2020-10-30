@@ -5,17 +5,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
+
 @Service
 public class ComputeService {
 
     public ResponseEntity<FactorialResponse>  computeFactorial(String n) {
         FactorialResponse factorialResponse = new FactorialResponse();
-        int res = factorial(Integer.parseInt(n));
+        BigInteger res = factorial(Integer.parseInt(n));
         factorialResponse.setResult(String.valueOf(res));
         return new ResponseEntity<>(factorialResponse, HttpStatus.OK);
     }
 
-    public int factorial(int n) {
-        return n == 0 ? 1 : n * factorial(n-1);
+    public BigInteger factorial(int n) {
+        return n > 2 ? new BigInteger(n+"").multiply(factorial(n-1)) : new BigInteger(n+"");
     }
 }
