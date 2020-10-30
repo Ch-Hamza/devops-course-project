@@ -18,6 +18,8 @@ public class ComputeService {
     }
 
     public BigInteger factorial(int n) {
-        return n > 2 ? new BigInteger(n+"").multiply(factorial(n-1)) : new BigInteger(n+"");
+        if(n < 0)
+            return new BigInteger(n+"");
+        return n == 0 ? new BigInteger(1+"") : new BigInteger(n+"").multiply(factorial(n-1));
     }
 }
