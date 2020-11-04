@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Test Build
+    name: Build project
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -17,3 +17,16 @@ jobs:
           java-version: 1.8
       - name: Build with Maven
         run: make start
+
+  test:
+    runs-on: ubuntu-latest
+    name: Test project
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Test with Maven
+        run: make test
