@@ -40,7 +40,7 @@ public class ComputeService {
                 res = res.multiply(new BigInteger(n+""));
                 n--;
             }
+            return res;
         }
-        return n == 0 ? new BigInteger(1+"") : new BigInteger(n+"").multiply(factorial(n-1));
     }
 }
