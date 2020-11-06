@@ -14,8 +14,13 @@ public class ComputeController {
     @Autowired
     ComputeService computeService;
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/factorial")
     public ResponseEntity<FactorialResponse> computeFactorial(@RequestParam("n") String n) {
         return computeService.computeFactorial(n);
+    }
+
+    @GetMapping(value = "factorial-iter")
+    public ResponseEntity<FactorialResponse> computeFactorialIterative(@RequestParam("n") String n) {
+        return computeService.computeFactorialIterative(n);
     }
 }

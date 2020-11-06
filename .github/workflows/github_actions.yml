@@ -2,7 +2,6 @@ name: Deploy factorial test project
 
 on:
   push:
-    branches: [ master ]
 
 jobs:
   build:
@@ -30,3 +29,5 @@ jobs:
           java-version: 1.8
       - name: Test with Maven
         run: make test
+      - name: Benchmark Test
+        run: make benchmark
